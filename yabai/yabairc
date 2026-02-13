@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+
+sudo yabai --load-sa
+yabai -m config layout bsp
+yabai -m config --space 1 layout float
+yabai -m config --space 3 layout float
+yabai -m config windows_placement second_child
+yabai -m config top_padding 5
+yabai -m config bottom_padding 8
+yabai -m config left_padding 5
+yabai -m config right_padding 5
+yabai -m config window_gap 8
+yabai -m config auto_balance off
+yabai -m config mouse_modifier fn
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+
+# ========================================================================================
+# Sub window
+yabai -m rule --add app="^Finder$" manage=off
+
+# 2. 忽略系统级的 "打开/保存/打印" 对话框
+#    - 这些对话框虽然看起来像 Finder，但它们是系统级的，由调用它们的应用所拥有。
+#    - 通过窗口的 `role` (角色) 来识别它们是最可靠的方法。
+yabai -m rule --add role="AXSystemDialog" manage=off
+
+# 3. (可选但推荐) 忽略应用的 "偏好设置" 等标准对话框
+#    - 这条规则可以更广泛地覆盖各种应用的非主窗口，让它们自由浮动。
+#
+yabai -m rule --add role="AXDialog" manage=off
+# 其他应用的特定弹窗
+yabai -m rule --add app="^System Information$" title="About This Mac" manage=off
+yabai -m rule --add app="^Inkscape$" title="Select file to save to" manage=off
+
+# 1. 系统工具和弹窗类应用 (基本都应该忽略)
+yabai -m rule --add app="^(Raycast|System Settings|System Preferences|Calculator|Dictionary|Archive Utility|Photo Booth|Software Update|Activity Monitor)$" manage=off sticky=off
+
+# 2. 社交、音乐等多面板且不适合平铺的应用
+yabai -m rule --add app="^(QQ|WeChat|Spotify|Tecent Lemon|Clash Verge|Music|Notes)$" manage=off sticky=off
+
+yabai -m rule --add label="Messages" app="^Messages$" manage=off
+# 3. 某些特殊应用（如游戏平台）
+yabai -m rule --add app="^Steam$" manage=off sticky=off
+
+# 4. App Store 和 Python 脚本窗口
+yabai -m rule --add app="^(App Store|Python)$" manage=off sticky=off
+
+echo "yabai configuration loaded.."

@@ -1,0 +1,122 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "ctrl-x ctrl-o": "editor::ShowCompletions",
+      "ctrl-x ctrl-a": "assistant::InlineAssist", // zed specific
+      // For showing edit prediction manually.
+      "ctrl-x ctrl-c": "editor::ShowEditPrediction", // zed specific
+    },
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "VimControl && !menu && vim_mode != operator",
+    "bindings": {
+      "w": "vim::NextSubwordStart",
+      "b": "vim::PreviousSubwordStart",
+      "e": "vim::NextSubwordEnd",
+      "g e": "vim::PreviousSubwordEnd",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": "vim::PushAddSurrounds",
+    },
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore", // In insert mode, make jk escape to normal mode.
+    },
+  },
+  {
+    "context": "Editor && !ProjectPanel",
+    "bindings": {
+      "; e e": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "; e e ": ["workspace::SendKeystrokes", "cmd-b"],
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "; t t": "pane::CloseActiveItem", // close the terminal
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !menu",
+    "bindings": {
+      "K": "editor::Hover",
+      "L": "pane::ActivateNextItem",
+      "H": "pane::ActivatePreviousItem",
+      "; w v": "pane::SplitRight",
+      "; w h": "pane::SplitDown",
+      "; c a": "editor::ToggleCodeActions",
+      "; c r": "editor::Rename",
+      "; f f": "file_finder::Toggle", // find project files
+      "; b b": "tab_switcher::Toggle", // switch to another open file
+      "; f p": "workspace::NewSearch", // search the current project
+      "; a c": "agent::ToggleFocus", // open assistant chat
+      "; c v": "outline::Toggle", // find variables in the current file
+      "; c o": "editor::OrganizeImports",
+      "; t t": "terminal_panel::ToggleFocus", // open terminal
+      "; s s": "buffer_search::Deploy", // search current buffer
+      "; [ ]": "diagnostics::Deploy",
+      "; b d": "pane::CloseActiveItem",
+      "g ]": "editor::GoToDiagnostic",
+      "g [": "editor::GoToPreviousDiagnostic",
+      "g r": "editor::FindAllReferences",
+    },
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Key-bindings for empty pane
+      "; f f": "file_finder::Toggle",
+      "; f p": "projects::OpenRecent",
+      "ctrl-w l": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": "vim::PushSneak",
+      "shift-s": "vim::PushSneakBackward",
+      "<": "editor::Outdent",
+      ">": "editor::Indent",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-alt-up": "editor::AddSelectionAbove",
+      "cmd-ctrl-p": "editor::AddSelectionAbove",
+      "cmd-alt-down": "editor::AddSelectionBelow",
+      "cmd-ctrl-n": "editor::AddSelectionBelow",
+      "alt-down": "editor::SelectLargerSyntaxNode",
+      "alt-up": "editor::SelectSmallerSyntaxNode",
+      "cmd-u": "editor::UndoSelection",
+      "cmd-shift-u": "editor::RedoSelection",
+    },
+  },
+]
