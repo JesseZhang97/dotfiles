@@ -67,7 +67,7 @@ end)
 wezterm.on("update-right-status", function(window, _pane)
   local segments = {}
   if window:leader_is_active() then
-    table.insert(segments, "🧭 LEADER")
+    table.insert(segments, "📟 LEADER")
   end
   window:set_right_status(table.concat(segments, "  "))
 end)

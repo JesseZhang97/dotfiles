@@ -1,0 +1,34 @@
+# Best-practice baseline + personal preferences.
+
+theme = everforest
+
+# Primary font and explicit fallback for Nerd Font symbols/icons.
+font-family = "Jetbrains Mono"
+font-family = "MesloLGS NF"
+font-family-italic = "VictorMono Nerd Font Italic"
+font-size = 17
+
+shell-integration = detect
+# Keep Ghostty native TERM so feature detection remains accurate.
+term = xterm-ghostty
+
+link-url = true
+link-previews = true
+
+# Ghostty has no unlimited scrollback; keep a generous but bounded value.
+scrollback-limit = 50000000
+
+cursor-style-blink = true
+
+background-opacity = 1
+# No background-blur: blur only applies when opacity < 1.
+
+window-padding-x = 0
+window-padding-y = 0
+window-step-resize = true
+# Fill any right/bottom remainder pixels with edge cell color.
+window-padding-color = extend-always
+
+# Keep system window frame so macOS rounded corners are visible.
+window-decoration = auto
+macos-titlebar-style = hidden

@@ -1,0 +1,25 @@
+# Everforest dark medium (ported from kitty theme)
+# Source: /Users/daydreamer/.config/kitty/everforest-dark-medium-kitty.conf
+
+foreground = #d8cacc
+background = #323d43
+selection-foreground = #3c474d
+selection-background = #525c62
+cursor-color = #7fbbb3
+
+palette = 0=#4a555b
+palette = 1=#e68183
+palette = 2=#a7c080
+palette = 3=#dbbc7f
+palette = 4=#7fbbb3
+palette = 5=#d699b6
+palette = 6=#83c092
+palette = 7=#d8caac
+palette = 8=#525c62
+palette = 9=#e68183
+palette = 10=#a7c080
+palette = 11=#dbbc7f
+palette = 12=#7fbbb3
+palette = 13=#d699b6
+palette = 14=#83c092
+palette = 15=#d8caac
